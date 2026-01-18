@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import aboutImage from '@/assets/about-interior.jpg';
+import aboutVideo from '@/assets/videos/about-video.mp4';
 
 const VideoSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,17 +16,20 @@ const VideoSection = () => {
 
   return (
     <section ref={containerRef} className="relative h-[80vh] overflow-hidden">
-      {/* Background Image with Parallax */}
+      {/* Background Video with Parallax */}
       <motion.div 
         style={{ y }}
         className="absolute inset-0"
       >
-        <img 
-          src={aboutImage} 
-          alt="Interior Showroom"
+        <video 
+          src={aboutVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover scale-110"
         />
-        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-background/60" />
       </motion.div>
 
       {/* Content */}
