@@ -1,9 +1,21 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import heroImage from '@/assets/hero-interior.jpg';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import heroVideo1 from '@/assets/videos/hero-video-1.mp4';
+import heroVideo2 from '@/assets/videos/hero-video-2.mp4';
+import heroVideo3 from '@/assets/videos/hero-video-3.mp4';
+import heroVideo4 from '@/assets/videos/hero-video-4.mp4';
+
+const videos = [
+  { src: heroVideo1, title: 'Living Spaces' },
+  { src: heroVideo2, title: 'Bedroom Elegance' },
+  { src: heroVideo3, title: 'Dining Excellence' },
+  { src: heroVideo4, title: 'Lounge Luxury' },
+];
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start']
@@ -15,22 +27,77 @@ const HeroSection = () => {
   const textY = useTransform(scrollYProgress, [0, 0.3], ['0%', '-100%']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % videos.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div ref={containerRef} className="relative h-screen overflow-hidden">
-      {/* Background Image with Parallax */}
+      {/* Background Videos with Parallax */}
       <motion.div 
         style={{ y, scale }}
         className="absolute inset-0"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
-        <img 
-          src={heroImage} 
-          alt="Luxury Interior"
-          className="w-full h-full object-cover"
-        />
+        
+        <AnimatePresence mode="wait">
+          <motion.video
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
+            src={videos[currentIndex].src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover absolute inset-0"
+          />
+        </AnimatePresence>
+        
         {/* Overlay for depth */}
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-background/40 z-[5]" />
       </motion.div>
+
+      {/* Navigation Arrows */}
+      <div className="absolute inset-y-0 left-0 right-0 z-30 flex items-center justify-between px-6 md:px-12 pointer-events-none">
+        <motion.button
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.5 }}
+          onClick={prevSlide}
+          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 border border-champagne/30 hover:border-champagne hover:bg-champagne/10 flex items-center justify-center transition-all duration-300 group"
+        >
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-champagne/70 group-hover:text-champagne transition-colors" />
+        </motion.button>
+        
+        <motion.button
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.5 }}
+          onClick={nextSlide}
+          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 border border-champagne/30 hover:border-champagne hover:bg-champagne/10 flex items-center justify-center transition-all duration-300 group"
+        >
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-champagne/70 group-hover:text-champagne transition-colors" />
+        </motion.button>
+      </div>
 
       {/* Hero Content */}
       <motion.div 
@@ -74,14 +141,48 @@ const HeroSection = () => {
           >
             Curating exceptional spaces with timeless elegance
           </motion.p>
+
+          {/* Current Slide Title */}
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+              className="text-champagne/50 mt-6 text-xs tracking-[0.3em] uppercase font-body"
+            >
+              {videos[currentIndex].title}
+            </motion.p>
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Slide Indicators */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center gap-3"
+        >
+          {videos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-500 ${
+                index === currentIndex 
+                  ? 'w-8 h-1 bg-champagne' 
+                  : 'w-3 h-1 bg-champagne/30 hover:bg-champagne/50'
+              }`}
+            />
+          ))}
         </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          transition={{ duration: 1, delay: 2 }}
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -89,7 +190,7 @@ const HeroSection = () => {
             className="flex flex-col items-center gap-2"
           >
             <span className="text-cream/40 text-xs tracking-[0.3em] uppercase font-body">Scroll</span>
-            <div className="w-[1px] h-12 bg-gradient-to-b from-champagne/50 to-transparent" />
+            <div className="w-[1px] h-8 bg-gradient-to-b from-champagne/50 to-transparent" />
           </motion.div>
         </motion.div>
       </motion.div>
