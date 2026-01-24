@@ -76,16 +76,17 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-background/40 z-[5]" />
       </motion.div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Minimal style without boxes */}
       <div className="absolute inset-y-0 left-0 right-0 z-30 flex items-center justify-between px-6 md:px-12 pointer-events-none">
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5 }}
           onClick={prevSlide}
-          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 rounded-sm border border-champagne/20 hover:border-champagne/60 hover:bg-champagne/5 flex items-center justify-center transition-all duration-300 group backdrop-blur-sm"
+          className="pointer-events-auto p-2 transition-all duration-300 group"
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="w-5 h-5 text-champagne/60 group-hover:text-champagne transition-colors" />
+          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10 text-cream/50 group-hover:text-champagne transition-colors duration-300" />
         </motion.button>
         
         <motion.button
@@ -93,9 +94,10 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5 }}
           onClick={nextSlide}
-          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 rounded-sm border border-champagne/20 hover:border-champagne/60 hover:bg-champagne/5 flex items-center justify-center transition-all duration-300 group backdrop-blur-sm"
+          className="pointer-events-auto p-2 transition-all duration-300 group"
+          aria-label="Next slide"
         >
-          <ChevronRight className="w-5 h-5 text-champagne/60 group-hover:text-champagne transition-colors" />
+          <ChevronRight className="w-8 h-8 md:w-10 md:h-10 text-cream/50 group-hover:text-champagne transition-colors duration-300" />
         </motion.button>
       </div>
 

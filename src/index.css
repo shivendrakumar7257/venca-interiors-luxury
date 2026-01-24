@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* Vanca Interio - Premium Luxury Interior Design System */
 
@@ -59,7 +59,7 @@
     --glass-blur: 20px;
 
     /* Typography */
-    --font-brand: 'Playfair Display', serif;
+    --font-brand: 'Pacifico', cursive;
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
@@ -80,67 +80,67 @@
   }
 
   .light {
-    /* Light Mode - Warm ivory aesthetic */
-    --background: 40 30% 97%;
-    --foreground: 0 0% 15%;
+    /* Light Mode - Soft ivory aesthetic with proper contrast */
+    --background: 45 30% 96%;
+    --foreground: 30 15% 20%;
 
-    --card: 40 25% 95%;
-    --card-foreground: 0 0% 15%;
+    --card: 45 25% 93%;
+    --card-foreground: 30 15% 18%;
 
-    --popover: 40 30% 98%;
-    --popover-foreground: 0 0% 15%;
+    --popover: 45 30% 95%;
+    --popover-foreground: 30 15% 18%;
 
-    /* Champagne gold primary */
-    --primary: 38 40% 45%;
-    --primary-foreground: 40 30% 97%;
+    /* Champagne gold primary - darker for contrast */
+    --primary: 35 45% 38%;
+    --primary-foreground: 45 30% 96%;
 
     /* Soft secondary */
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 40 18% 88%;
+    --secondary-foreground: 30 15% 22%;
 
     /* Muted tones */
-    --muted: 40 15% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 40 12% 85%;
+    --muted-foreground: 30 10% 45%;
 
-    /* Accent - warm champagne */
-    --accent: 38 35% 50%;
-    --accent-foreground: 40 30% 97%;
+    /* Accent - rich warm champagne */
+    --accent: 35 40% 42%;
+    --accent-foreground: 45 30% 96%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 20% 85%;
-    --input: 40 20% 88%;
-    --ring: 38 40% 45%;
+    --border: 35 15% 78%;
+    --input: 40 18% 85%;
+    --ring: 35 45% 38%;
 
     /* Custom luxury variables - Light mode */
-    --champagne: 38 40% 45%;
-    --champagne-light: 40 45% 55%;
-    --champagne-dark: 36 35% 35%;
-    --cream: 0 0% 15%;
-    --charcoal: 40 25% 95%;
-    --charcoal-deep: 40 30% 97%;
-    --charcoal-light: 40 20% 88%;
+    --champagne: 35 45% 38%;
+    --champagne-light: 38 50% 48%;
+    --champagne-dark: 32 40% 28%;
+    --cream: 30 15% 22%;
+    --charcoal: 45 20% 92%;
+    --charcoal-deep: 45 25% 94%;
+    --charcoal-light: 40 15% 82%;
 
     /* Glassmorphism - Light */
-    --glass-bg: 40 30% 98% / 0.85;
-    --glass-border: 0 0% 0% / 0.08;
+    --glass-bg: 45 25% 96% / 0.92;
+    --glass-border: 30 10% 30% / 0.12;
     --glass-blur: 20px;
 
     /* Shadows - Light */
-    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.15);
-    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 60px -15px hsl(38 40% 45% / 0.2);
+    --shadow-luxury: 0 25px 50px -12px hsl(30 20% 20% / 0.12);
+    --shadow-card: 0 10px 40px -10px hsl(30 20% 20% / 0.08);
+    --shadow-glow: 0 0 60px -15px hsl(35 45% 38% / 0.15);
 
     /* Sidebar - Light */
-    --sidebar-background: 40 25% 95%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 38 40% 45%;
-    --sidebar-primary-foreground: 40 30% 97%;
-    --sidebar-accent: 40 20% 92%;
-    --sidebar-accent-foreground: 0 0% 20%;
-    --sidebar-border: 40 20% 85%;
-    --sidebar-ring: 38 40% 45%;
+    --sidebar-background: 45 25% 93%;
+    --sidebar-foreground: 30 15% 22%;
+    --sidebar-primary: 35 45% 38%;
+    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-accent: 40 18% 88%;
+    --sidebar-accent-foreground: 30 15% 22%;
+    --sidebar-border: 35 15% 78%;
+    --sidebar-ring: 35 45% 38%;
   }
 }
 
@@ -243,5 +243,10 @@
 
   .animation-delay-600 {
     animation-delay: 600ms;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
   }
 }
