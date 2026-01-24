@@ -25,8 +25,8 @@ const Header = ({ isVisible }: HeaderProps) => {
 
         {/* Center - Brand Name */}
         <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <h1 className="font-display text-xl md:text-2xl tracking-[0.3em] text-cream font-light">
-            Venca Interio
+          <h1 className="font-brand text-xl md:text-2xl tracking-[0.2em] text-cream font-medium">
+            Vanca Interio
           </h1>
         </Link>
 

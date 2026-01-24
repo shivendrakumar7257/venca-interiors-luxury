@@ -28,8 +28,8 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-display text-2xl text-cream tracking-[0.15em] mb-4">
-              Venca Interio
+            <h3 className="font-brand text-2xl text-cream tracking-[0.1em] font-medium mb-4">
+              Vanca Interio
             </h3>
             <p className="text-cream/40 text-sm leading-relaxed font-body max-w-xs">
               Crafting extraordinary interiors with an unwavering commitment 
@@ -97,7 +97,7 @@ const Footer = () => {
           className="mt-16 pt-8 border-t border-charcoal-light flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-cream/30 text-xs tracking-wider font-body">
-            © 2024 Venca Interio. All rights reserved.
+            © 2024 Vanca Interio. All rights reserved.
           </p>
           <p className="text-cream/30 text-xs tracking-wider font-body">
             Designed with passion for exceptional living

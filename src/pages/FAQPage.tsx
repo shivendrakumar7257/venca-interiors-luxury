@@ -129,7 +129,7 @@ const FAQPage = () => {
               Our team is here to help you with any inquiries.
             </p>
             <a 
-              href="mailto:contact@vencainterio.com"
+              href="mailto:contact@vancainterio.com"
               className="inline-block px-8 py-3 border border-champagne text-champagne hover:bg-champagne/10 transition-colors duration-300 text-sm tracking-[0.2em] uppercase font-body"
             >
               Contact Us

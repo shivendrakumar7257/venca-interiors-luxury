@@ -120,8 +120,8 @@ const LoginPage = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-center"
           >
-            <h2 className="font-display text-5xl text-cream/20 tracking-[0.2em]">
-              Venca
+            <h2 className="font-brand text-5xl text-cream/20 tracking-[0.15em] font-medium">
+              Vanca
               <br />
               Interio
             </h2>
