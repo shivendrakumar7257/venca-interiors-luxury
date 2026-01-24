@@ -48,7 +48,7 @@ const AboutPage = () => {
           >
             <img 
               src={aboutImage} 
-              alt="Venca Interio Showroom"
+              alt="Vanca Interio Showroom"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
@@ -70,7 +70,7 @@ const AboutPage = () => {
                 Our Philosophy
               </h2>
               <p className="text-cream/60 leading-relaxed font-body mb-6">
-                At Venca Interio, we believe that exceptional design transcends mere aesthetics. 
+                At Vanca Interio, we believe that exceptional design transcends mere aesthetics. 
                 Every piece in our collection represents a harmonious blend of artisanal 
                 craftsmanship and contemporary innovation.
               </p>

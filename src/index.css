@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* Venca Interio - Premium Luxury Interior Design System */
+/* Vanca Interio - Premium Luxury Interior Design System */
 
 @layer base {
-  :root {
-    /* Core luxury palette */
+  :root,
+  .dark {
+    /* Core luxury palette - Dark Mode */
     --background: 0 0% 4%;
     --foreground: 45 20% 95%;
 
@@ -58,6 +59,7 @@
     --glass-blur: 20px;
 
     /* Typography */
+    --font-brand: 'Playfair Display', serif;
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
@@ -77,26 +79,68 @@
     --sidebar-ring: 40 45% 65%;
   }
 
-  .dark {
-    --background: 0 0% 4%;
-    --foreground: 45 20% 95%;
-    --card: 0 0% 6%;
-    --card-foreground: 45 20% 95%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 45 20% 95%;
-    --primary: 40 45% 65%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 20% 90%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 55%;
+  .light {
+    /* Light Mode - Warm ivory aesthetic */
+    --background: 40 30% 97%;
+    --foreground: 0 0% 15%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 0 0% 15%;
+
+    /* Champagne gold primary */
+    --primary: 38 40% 45%;
+    --primary-foreground: 40 30% 97%;
+
+    /* Soft secondary */
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 0 0% 20%;
+
+    /* Muted tones */
+    --muted: 40 15% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent - warm champagne */
     --accent: 38 35% 50%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 40 30% 97%;
+
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 40 45% 65%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 88%;
+    --ring: 38 40% 45%;
+
+    /* Custom luxury variables - Light mode */
+    --champagne: 38 40% 45%;
+    --champagne-light: 40 45% 55%;
+    --champagne-dark: 36 35% 35%;
+    --cream: 0 0% 15%;
+    --charcoal: 40 25% 95%;
+    --charcoal-deep: 40 30% 97%;
+    --charcoal-light: 40 20% 88%;
+
+    /* Glassmorphism - Light */
+    --glass-bg: 40 30% 98% / 0.85;
+    --glass-border: 0 0% 0% / 0.08;
+    --glass-blur: 20px;
+
+    /* Shadows - Light */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.15);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 60px -15px hsl(38 40% 45% / 0.2);
+
+    /* Sidebar - Light */
+    --sidebar-background: 40 25% 95%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 38 40% 45%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 40 20% 92%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 40 20% 85%;
+    --sidebar-ring: 38 40% 45%;
   }
 }
 
@@ -116,6 +160,10 @@
 }
 
 @layer components {
+  .font-brand {
+    font-family: var(--font-brand);
+  }
+
   .font-display {
     font-family: var(--font-display);
   }

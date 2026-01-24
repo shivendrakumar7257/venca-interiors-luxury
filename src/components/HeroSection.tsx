@@ -83,9 +83,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5 }}
           onClick={prevSlide}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 border border-champagne/30 hover:border-champagne hover:bg-champagne/10 flex items-center justify-center transition-all duration-300 group"
+          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 rounded-sm border border-champagne/20 hover:border-champagne/60 hover:bg-champagne/5 flex items-center justify-center transition-all duration-300 group backdrop-blur-sm"
         >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-champagne/70 group-hover:text-champagne transition-colors" />
+          <ChevronLeft className="w-5 h-5 text-champagne/60 group-hover:text-champagne transition-colors" />
         </motion.button>
         
         <motion.button
@@ -93,9 +93,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5 }}
           onClick={nextSlide}
-          className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 border border-champagne/30 hover:border-champagne hover:bg-champagne/10 flex items-center justify-center transition-all duration-300 group"
+          className="pointer-events-auto w-11 h-11 md:w-12 md:h-12 rounded-sm border border-champagne/20 hover:border-champagne/60 hover:bg-champagne/5 flex items-center justify-center transition-all duration-300 group backdrop-blur-sm"
         >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-champagne/70 group-hover:text-champagne transition-colors" />
+          <ChevronRight className="w-5 h-5 text-champagne/60 group-hover:text-champagne transition-colors" />
         </motion.button>
       </div>
 
@@ -121,9 +121,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.15em] font-light"
+            className="font-brand text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.1em] font-medium"
           >
-            Venca Interio
+            Vanca Interio
           </motion.h1>
 
           <motion.div
@@ -157,7 +157,7 @@ const HeroSection = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Slide Indicators */}
+        {/* Slide Indicators - Circular Dots */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,10 +168,10 @@ const HeroSection = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`transition-all duration-500 ${
+              className={`rounded-full transition-all duration-500 ${
                 index === currentIndex 
-                  ? 'w-8 h-1 bg-champagne' 
-                  : 'w-3 h-1 bg-champagne/30 hover:bg-champagne/50'
+                  ? 'w-2.5 h-2.5 bg-champagne scale-110' 
+                  : 'w-2 h-2 bg-champagne/30 hover:bg-champagne/50'
               }`}
             />
           ))}
