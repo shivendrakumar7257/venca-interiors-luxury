@@ -25,7 +25,7 @@ const CategorySection = () => {
           className="text-center mb-16 md:mb-24"
         >
           <span className="text-champagne/60 text-sm tracking-[0.4em] uppercase font-body">Collections</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream mt-4 tracking-wide">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mt-4 tracking-wide">
             Curated Excellence
           </h2>
           <div className="w-16 h-[1px] bg-champagne/40 mx-auto mt-8" />

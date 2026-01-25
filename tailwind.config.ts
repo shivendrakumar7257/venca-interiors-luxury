@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        brand: ['Pacifico', 'cursive'],
+        brand: ['Playfair Display', 'serif'],
         display: ['Cormorant Garamond', 'serif'],
         body: ['Inter', 'sans-serif'],
       },
