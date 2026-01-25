@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        brand: ['Playfair Display', 'serif'],
+        brand: ['"Cinzel Decorative"', 'serif'],
         display: ['Cormorant Garamond', 'serif'],
         body: ['Inter', 'sans-serif'],
       },

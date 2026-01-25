@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import { AnimatePresence, motion } from "framer-motion";
-import ThemeToggle from "@/components/ThemeToggle";
+
 import FeedbackButton from "@/components/FeedbackButton";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import Index from "./pages/Index";
@@ -18,13 +18,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Page transition wrapper
+// Page transition wrapper - TOP to BOTTOM only
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: -30 }}
+      initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 30 }}
+      exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
     >
       {children}
@@ -56,7 +56,6 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <ThemeToggle />
         <FeedbackButton />
         <NewsletterPopup />
         <BrowserRouter>

@@ -54,7 +54,8 @@ const HeroSection = () => {
         style={{ y, scale }}
         className="absolute inset-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
+        {/* Light mode: no overlay, Dark mode: gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10 dark:block hidden" />
         
         <AnimatePresence mode="wait">
           <motion.video
@@ -72,8 +73,8 @@ const HeroSection = () => {
           />
         </AnimatePresence>
         
-        {/* Overlay for depth */}
-        <div className="absolute inset-0 bg-background/40 z-[5]" />
+        {/* Overlay for depth - only in dark mode */}
+        <div className="absolute inset-0 bg-background/40 z-[5] dark:block hidden" />
       </motion.div>
 
       {/* Navigation Arrows - Minimal style without boxes */}
@@ -123,7 +124,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-brand text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.1em] font-semibold"
+            className="font-brand text-3xl md:text-5xl lg:text-6xl text-white tracking-[0.25em] font-normal uppercase"
           >
             Vanca Interio
           </motion.h1>

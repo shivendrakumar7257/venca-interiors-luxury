@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;500;700;900&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* Vanca Interio - Premium Luxury Interior Design System */
 
@@ -59,7 +59,7 @@
     --glass-blur: 20px;
 
     /* Typography */
-    --font-brand: 'Playfair Display', serif;
+    --font-brand: 'Cinzel Decorative', serif;
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
