@@ -51,7 +51,7 @@ const AboutPage = () => {
               alt="Vanca Interio Showroom"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 dark:from-background/50 to-transparent" />
           </motion.div>
         </div>
       </section>

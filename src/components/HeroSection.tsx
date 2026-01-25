@@ -86,7 +86,7 @@ const HeroSection = () => {
           className="pointer-events-auto p-2 transition-all duration-300 group"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10 text-cream/50 group-hover:text-champagne transition-colors duration-300" />
+          <ChevronLeft className="w-8 h-8 md:w-10 md:h-10 text-white/60 group-hover:text-champagne transition-colors duration-300" />
         </motion.button>
         
         <motion.button
@@ -97,7 +97,7 @@ const HeroSection = () => {
           className="pointer-events-auto p-2 transition-all duration-300 group"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-8 h-8 md:w-10 md:h-10 text-cream/50 group-hover:text-champagne transition-colors duration-300" />
+          <ChevronRight className="w-8 h-8 md:w-10 md:h-10 text-white/60 group-hover:text-champagne transition-colors duration-300" />
         </motion.button>
       </div>
 
@@ -123,7 +123,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-brand text-5xl md:text-7xl lg:text-8xl text-cream tracking-[0.1em] font-medium"
+            className="font-brand text-5xl md:text-7xl lg:text-8xl text-white tracking-[0.1em] font-semibold"
           >
             Vanca Interio
           </motion.h1>
@@ -139,7 +139,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="text-cream/60 mt-8 text-sm md:text-base tracking-wider max-w-md mx-auto font-body"
+            className="text-white/70 mt-8 text-sm md:text-base tracking-wider max-w-md mx-auto font-body"
           >
             Curating exceptional spaces with timeless elegance
           </motion.p>
@@ -191,7 +191,7 @@ const HeroSection = () => {
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-cream/40 text-xs tracking-[0.3em] uppercase font-body">Scroll</span>
+            <span className="text-white/40 text-xs tracking-[0.3em] uppercase font-body">Scroll</span>
             <div className="w-[1px] h-8 bg-gradient-to-b from-champagne/50 to-transparent" />
           </motion.div>
         </motion.div>

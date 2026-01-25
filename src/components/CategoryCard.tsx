@@ -12,13 +12,13 @@ interface CategoryCardProps {
 const CategoryCard = ({ id, name, image, description, index }: CategoryCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: -40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8, delay: index * 0.15 }}
     >
       <Link to={`/category/${id}`} className="group block relative overflow-hidden">
-        <div className="aspect-[4/5] relative overflow-hidden">
+        <div className="aspect-[4/5] relative overflow-hidden bg-card">
           {/* Image */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -32,21 +32,21 @@ const CategoryCard = ({ id, name, image, description, index }: CategoryCardProps
             />
           </motion.div>
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          {/* Overlay - Dark mode only */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-background dark:via-background/20 dark:to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-end p-8">
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: -20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
             >
-              <h3 className="font-display text-3xl md:text-4xl text-cream tracking-wider mb-3">
+              <h3 className="font-display text-3xl md:text-4xl text-white dark:text-cream tracking-wider mb-3">
                 {name}
               </h3>
-              <p className="text-cream/50 text-sm tracking-wide font-body">
+              <p className="text-white/70 dark:text-cream/50 text-sm tracking-wide font-body">
                 {description}
               </p>
               

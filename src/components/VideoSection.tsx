@@ -29,7 +29,7 @@ const VideoSection = () => {
           playsInline
           className="w-full h-full object-cover scale-110"
         />
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-black/50 dark:bg-background/60" />
       </motion.div>
 
       {/* Content */}
@@ -43,7 +43,7 @@ const VideoSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-champagne/70 text-sm tracking-[0.4em] uppercase font-body"
+            className="text-champagne text-sm tracking-[0.4em] uppercase font-body"
           >
             Our Philosophy
           </motion.span>
@@ -53,7 +53,7 @@ const VideoSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl text-cream mt-6 tracking-wide leading-tight"
+            className="font-display text-4xl md:text-5xl lg:text-6xl text-white mt-6 tracking-wide leading-tight"
           >
             Know More About
             <br />
@@ -65,7 +65,7 @@ const VideoSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-cream/50 mt-8 text-base md:text-lg leading-relaxed font-body"
+            className="text-white/70 mt-8 text-base md:text-lg leading-relaxed font-body"
           >
             Where artisanal craftsmanship meets contemporary design, 
             creating spaces that transcend the ordinary.
