@@ -1,15 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const POPUP_DELAY = 800; // 800ms delay
 
+// Declare global guard on window object
+declare global {
+  interface Window {
+    __newsletterShownOnce?: boolean;
+  }
+}
+
 const NewsletterPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
-    // Always show popup after delay - no storage checks
+    // Guard: Only show popup once per page load using window-level flag AND ref
+    if (window.__newsletterShownOnce || hasTriggered.current) {
+      return;
+    }
+    
+    // Mark as triggered immediately to prevent duplicate calls
+    hasTriggered.current = true;
+    window.__newsletterShownOnce = true;
+    
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, POPUP_DELAY);
