@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import heroVideo1 from '@/assets/videos/hero-video-1.mp4';
 import heroInterior from '@/assets/hero-interior.jpg';
 import categorySofas from '@/assets/category-sofas.jpg';
@@ -164,32 +163,32 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Slide Counter Navigation - Bottom Right */}
+      {/* Slide Counter Navigation - Bottom Left, Minimal */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 right-8 md:right-12 z-30"
+        className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-30"
       >
-        <div className="flex items-center gap-4 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-sm">
+        <div className="flex items-center gap-3">
           <button
             onClick={prevSlide}
-            className="text-white/60 hover:text-white transition-colors duration-300 p-1"
+            className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-5 h-5" />
+            ←
           </button>
           
-          <span className="text-white/80 font-body text-sm tracking-wider min-w-[50px] text-center">
+          <span className="text-white/80 font-body text-sm font-light tracking-wide">
             {currentIndex + 1} / {slides.length}
           </span>
           
           <button
             onClick={nextSlide}
-            className="text-white/60 hover:text-white transition-colors duration-300 p-1"
+            className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-5 h-5" />
+            →
           </button>
         </div>
       </motion.div>

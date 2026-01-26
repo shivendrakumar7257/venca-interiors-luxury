@@ -13,6 +13,7 @@ import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import AboutPage from "./pages/AboutPage";
+import OurStoryPage from "./pages/OurStoryPage";
 import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
 
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
         <Route path="/product/:productId" element={<PageTransition><ProductPage /></PageTransition>} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
         <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+        <Route path="/our-story" element={<PageTransition><OurStoryPage /></PageTransition>} />
         <Route path="/faq" element={<PageTransition><FAQPage /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
