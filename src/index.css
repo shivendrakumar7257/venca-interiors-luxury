@@ -80,70 +80,70 @@
   }
 
   .light {
-    /* Light Mode - Off-white premium aesthetic */
-    --background: 40 20% 94%;
-    --foreground: 30 15% 20%;
+    /* Light Mode - Premium Off-white #F6EED8 */
+    --background: 43 55% 90%;
+    --foreground: 30 25% 15%;
 
-    --card: 40 18% 91%;
-    --card-foreground: 30 15% 18%;
+    --card: 43 50% 92%;
+    --card-foreground: 30 25% 12%;
 
-    --popover: 40 20% 93%;
-    --popover-foreground: 30 15% 18%;
+    --popover: 43 55% 91%;
+    --popover-foreground: 30 25% 12%;
 
     /* Champagne gold primary - darker for contrast */
-    --primary: 35 45% 38%;
-    --primary-foreground: 40 20% 94%;
+    --primary: 35 50% 35%;
+    --primary-foreground: 43 55% 92%;
 
     /* Soft secondary */
-    --secondary: 40 15% 88%;
-    --secondary-foreground: 30 15% 22%;
+    --secondary: 43 40% 88%;
+    --secondary-foreground: 30 25% 18%;
 
     /* Muted tones */
-    --muted: 40 12% 85%;
-    --muted-foreground: 30 10% 45%;
+    --muted: 43 35% 85%;
+    --muted-foreground: 30 15% 40%;
 
     /* Accent - rich warm champagne */
-    --accent: 35 40% 42%;
-    --accent-foreground: 40 20% 94%;
+    --accent: 35 45% 38%;
+    --accent-foreground: 43 55% 92%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 35 12% 82%;
-    --input: 40 15% 88%;
-    --ring: 35 45% 38%;
+    --border: 35 20% 82%;
+    --input: 43 40% 88%;
+    --ring: 35 50% 35%;
 
     /* Custom luxury variables - Light mode */
-    --champagne: 35 45% 38%;
-    --champagne-light: 38 50% 48%;
-    --champagne-dark: 32 40% 28%;
-    --cream: 30 15% 22%;
-    --charcoal: 40 18% 91%;
-    --charcoal-deep: 40 20% 93%;
-    --charcoal-light: 40 12% 85%;
+    --champagne: 35 50% 35%;
+    --champagne-light: 38 55% 45%;
+    --champagne-dark: 32 45% 25%;
+    --cream: 30 25% 15%;
+    --charcoal: 43 50% 92%;
+    --charcoal-deep: 43 55% 90%;
+    --charcoal-light: 43 35% 85%;
 
     /* Image container background - off-white for clean images */
-    --image-bg: 40 20% 94%;
+    --image-bg: 43 55% 90%;
 
     /* Glassmorphism - Light */
-    --glass-bg: 40 18% 94% / 0.95;
-    --glass-border: 30 10% 50% / 0.1;
+    --glass-bg: 43 50% 92% / 0.95;
+    --glass-border: 30 15% 50% / 0.1;
     --glass-blur: 20px;
 
     /* Shadows - Light */
-    --shadow-luxury: 0 25px 50px -12px hsl(30 20% 20% / 0.08);
-    --shadow-card: 0 10px 40px -10px hsl(30 20% 20% / 0.05);
-    --shadow-glow: 0 0 60px -15px hsl(35 45% 38% / 0.12);
+    --shadow-luxury: 0 25px 50px -12px hsl(30 20% 20% / 0.06);
+    --shadow-card: 0 10px 40px -10px hsl(30 20% 20% / 0.04);
+    --shadow-glow: 0 0 60px -15px hsl(35 50% 35% / 0.1);
 
     /* Sidebar - Light */
-    --sidebar-background: 40 18% 91%;
-    --sidebar-foreground: 30 15% 22%;
-    --sidebar-primary: 35 45% 38%;
-    --sidebar-primary-foreground: 40 20% 94%;
-    --sidebar-accent: 40 15% 88%;
-    --sidebar-accent-foreground: 30 15% 22%;
-    --sidebar-border: 35 12% 82%;
-    --sidebar-ring: 35 45% 38%;
+    --sidebar-background: 43 50% 92%;
+    --sidebar-foreground: 30 25% 18%;
+    --sidebar-primary: 35 50% 35%;
+    --sidebar-primary-foreground: 43 55% 92%;
+    --sidebar-accent: 43 40% 88%;
+    --sidebar-accent-foreground: 30 25% 18%;
+    --sidebar-border: 35 20% 82%;
+    --sidebar-ring: 35 50% 35%;
   }
 }
 
@@ -251,5 +251,33 @@
   .writing-vertical {
     writing-mode: vertical-rl;
     text-orientation: mixed;
+  }
+}
+
+/* Micro Premium Enhancements */
+@layer components {
+  /* Subtle hover animations on buttons */
+  .btn-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .btn-hover:hover {
+    @apply transform -translate-y-0.5;
+    box-shadow: 0 8px 25px -5px hsl(var(--primary) / 0.25);
+  }
+
+  /* Soft box shadows on cards */
+  .card-premium {
+    @apply transition-all duration-300 ease-out;
+    box-shadow: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+  }
+
+  .card-premium:hover {
+    box-shadow: 0 12px 35px -8px hsl(0 0% 0% / 0.12);
+  }
+
+  /* Smooth easing for modals */
+  .modal-ease {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }

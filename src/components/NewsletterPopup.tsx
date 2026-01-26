@@ -2,24 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
-const POPUP_DISMISSED_KEY = 'vanca_newsletter_dismissed';
-const POPUP_DELAY = 1000; // 1 second delay
-const DISMISS_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const POPUP_DELAY = 800; // 800ms delay
 
 const NewsletterPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const dismissedTime = localStorage.getItem(POPUP_DISMISSED_KEY);
-    
-    if (dismissedTime) {
-      const timePassed = Date.now() - parseInt(dismissedTime);
-      if (timePassed < DISMISS_DURATION) {
-        return; // Don't show popup within 24 hours
-      }
-    }
-
+    // Always show popup after delay - no storage checks
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, POPUP_DELAY);
@@ -29,7 +19,6 @@ const NewsletterPopup = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem(POPUP_DISMISSED_KEY, Date.now().toString());
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -60,9 +49,9 @@ const NewsletterPopup = () => {
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: -50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -50 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="relative z-10 flex w-full max-w-4xl overflow-hidden shadow-luxury"
           >

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MessageSquare, X } from 'lucide-react';
 
 type Rating = 1 | 2 | 3 | 4 | 5 | null;
@@ -17,7 +17,15 @@ const FeedbackButton = () => {
   const [step, setStep] = useState(1);
   const [rating, setRating] = useState<Rating>(null);
   const [feedback, setFeedback] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  // Check sessionStorage on mount
+  useEffect(() => {
+    const feedbackSubmitted = sessionStorage.getItem('feedbackSubmitted');
+    if (feedbackSubmitted === 'true') {
+      setIsHidden(true);
+    }
+  }, []);
 
   const handleRatingSelect = (selectedRating: Rating) => {
     setRating(selectedRating);
@@ -28,16 +36,12 @@ const FeedbackButton = () => {
       setStep(2);
     } else if (step === 2) {
       setStep(3);
-      setSubmitted(true);
-      // Reset after showing thank you
+      // Mark feedback as submitted in sessionStorage
+      sessionStorage.setItem('feedbackSubmitted', 'true');
+      // Hide after showing thank you
       setTimeout(() => {
         setIsOpen(false);
-        setTimeout(() => {
-          setStep(1);
-          setRating(null);
-          setFeedback('');
-          setSubmitted(false);
-        }, 300);
+        setIsHidden(true);
       }, 2000);
     }
   };
@@ -48,9 +52,13 @@ const FeedbackButton = () => {
       setStep(1);
       setRating(null);
       setFeedback('');
-      setSubmitted(false);
     }, 300);
   };
+
+  // Don't render if feedback was submitted this session
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <>
@@ -58,6 +66,7 @@ const FeedbackButton = () => {
       <motion.button
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.5, delay: 1 }}
         onClick={() => setIsOpen(true)}
         className="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-primary hover:bg-primary/90 text-primary-foreground px-2 py-4 rounded-l-lg shadow-luxury transition-all duration-300 group"
