@@ -3,6 +3,7 @@ import { Search, User, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
+import FloatingThemeToggle from './FloatingThemeToggle';
 
 interface HeaderProps {
   isVisible: boolean;
@@ -76,21 +77,16 @@ const Header = ({ isVisible }: HeaderProps) => {
         </div>
 
         {/* Desktop Header */}
-        <div className="hidden md:flex container mx-auto h-11 px-6 items-center justify-between">
-          {/* Left - Theme Toggle */}
-          <div className="flex items-center gap-4 w-24">
-            <ThemeToggle />
-          </div>
-
+        <div className="hidden md:flex container mx-auto h-11 px-6 items-center justify-center">
           {/* Center - Brand Name */}
-          <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
+          <Link to="/">
             <h1 className="font-brand text-base md:text-lg tracking-[0.25em] text-white font-normal uppercase">
               Vanca Interio
             </h1>
           </Link>
 
           {/* Right - Actions */}
-          <div className="flex items-center gap-5 w-24 justify-end">
+          <div className="absolute right-6 flex items-center gap-5">
             <button className="text-white/70 hover:text-white transition-colors duration-300">
               <User className="w-4 h-4" />
             </button>
@@ -192,6 +188,9 @@ const Header = ({ isVisible }: HeaderProps) => {
           </>
         )}
       </AnimatePresence>
+
+      {/* Floating Theme Toggle - Desktop Only */}
+      <FloatingThemeToggle isVisible={isVisible} />
     </>
   );
 };

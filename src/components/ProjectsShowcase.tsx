@@ -80,23 +80,87 @@ const ProjectsShowcase = () => {
         </div>
       </div>
 
-      {/* Slider Container */}
-      <div className="relative">
-        <div className="flex items-center justify-center gap-4 md:gap-8 px-4">
+      {/* Mobile Slider - Simple horizontal scroll */}
+      <div className="md:hidden relative px-4">
+        <div className="flex items-center justify-center gap-4">
+          <button
+            onClick={prevSlide}
+            className="z-10 w-10 h-10 flex items-center justify-center border border-[#4A90D9]/50 rounded-full text-[#4A90D9] hover:border-[#4A90D9] hover:bg-[#4A90D9]/10 transition-all duration-300"
+            aria-label="Previous project"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              className="relative w-full max-w-sm aspect-[4/3] overflow-hidden rounded-sm"
+            >
+              <img
+                src={projects[currentIndex].image}
+                alt={projects[currentIndex].title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-sm font-display tracking-wide">
+                  {projects[currentIndex].title}
+                </p>
+                <p className="text-white/60 text-xs font-body uppercase tracking-wider mt-1">
+                  {projects[currentIndex].location}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <button
+            onClick={nextSlide}
+            className="z-10 w-10 h-10 flex items-center justify-center border border-[#4A90D9]/50 rounded-full text-[#4A90D9] hover:border-[#4A90D9] hover:bg-[#4A90D9]/10 transition-all duration-300"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Cinematic Slider */}
+      <div className="hidden md:block relative">
+        <div className="flex items-center justify-center gap-6 lg:gap-10 px-8">
+          {/* Far Left Preview - Smaller */}
+          <motion.div
+            className="hidden lg:block w-32 xl:w-40 h-48 xl:h-56 relative opacity-30 flex-shrink-0 overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 0.3, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={projects[getSlideIndex(-2)].image}
+              alt=""
+              className="w-full h-full object-cover scale-105"
+            />
+          </motion.div>
+
           {/* Left Preview */}
           <motion.div
-            className="hidden md:block w-48 lg:w-64 h-64 lg:h-80 relative opacity-40 flex-shrink-0"
+            className="w-44 lg:w-56 xl:w-64 h-56 lg:h-72 xl:h-80 relative opacity-50 flex-shrink-0 overflow-hidden rounded-sm cursor-pointer group"
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 0.4, x: 0 }}
+            whileInView={{ opacity: 0.5, x: 0 }}
             viewport={{ once: true }}
+            onClick={prevSlide}
+            whileHover={{ opacity: 0.7, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
           >
             <img
               src={projects[getSlideIndex(-1)].image}
               alt=""
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute bottom-4 left-4">
-              <p className="text-white/60 text-xs font-body uppercase tracking-wider">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white/80 text-xs font-body uppercase tracking-wider">
                 {projects[getSlideIndex(-1)].location}
               </p>
             </div>
@@ -105,40 +169,57 @@ const ProjectsShowcase = () => {
           {/* Left Arrow */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 md:left-auto md:relative z-10 w-12 h-12 flex items-center justify-center border border-[#4A90D9]/50 rounded-full text-[#4A90D9] hover:border-[#4A90D9] hover:bg-[#4A90D9]/10 transition-all duration-300"
+            className="z-10 w-12 h-12 flex items-center justify-center border border-white/20 rounded-full text-white/60 hover:border-white/40 hover:text-white hover:bg-white/5 transition-all duration-300 flex-shrink-0"
             aria-label="Previous project"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Main Slide */}
+          {/* Main Center Slide */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-full max-w-3xl lg:max-w-4xl aspect-[16/10]"
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl aspect-[16/10] overflow-hidden rounded-sm shadow-2xl group cursor-pointer"
+              whileHover={{ scale: 1.01 }}
             >
               <img
                 src={projects[currentIndex].image}
                 alt={projects[currentIndex].title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+              
               {/* Project Info */}
-              <div className="absolute bottom-6 right-6 text-right">
-                <p className="text-white/80 text-xs font-body uppercase tracking-wider">
-                  {projects[currentIndex].location}
-                </p>
-              </div>
+              <motion.div 
+                className="absolute bottom-6 left-6 right-6 flex justify-between items-end"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div>
+                  <h3 className="text-white text-xl lg:text-2xl font-display tracking-wide mb-1">
+                    {projects[currentIndex].title}
+                  </h3>
+                  <p className="text-white/70 text-sm font-body uppercase tracking-wider">
+                    {projects[currentIndex].location}
+                  </p>
+                </div>
+                <span className="text-white/50 text-sm font-body">
+                  {String(currentIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                </span>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
 
           {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="absolute right-4 md:right-auto md:relative z-10 w-12 h-12 flex items-center justify-center border border-[#4A90D9]/50 rounded-full text-[#4A90D9] hover:border-[#4A90D9] hover:bg-[#4A90D9]/10 transition-all duration-300"
+            className="z-10 w-12 h-12 flex items-center justify-center border border-white/20 rounded-full text-white/60 hover:border-white/40 hover:text-white hover:bg-white/5 transition-all duration-300 flex-shrink-0"
             aria-label="Next project"
           >
             <ChevronRight className="w-5 h-5" />
@@ -146,21 +227,39 @@ const ProjectsShowcase = () => {
 
           {/* Right Preview */}
           <motion.div
-            className="hidden md:block w-48 lg:w-64 h-64 lg:h-80 relative opacity-40 flex-shrink-0"
+            className="w-44 lg:w-56 xl:w-64 h-56 lg:h-72 xl:h-80 relative opacity-50 flex-shrink-0 overflow-hidden rounded-sm cursor-pointer group"
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 0.4, x: 0 }}
+            whileInView={{ opacity: 0.5, x: 0 }}
             viewport={{ once: true }}
+            onClick={nextSlide}
+            whileHover={{ opacity: 0.7, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
           >
             <img
               src={projects[getSlideIndex(1)].image}
               alt=""
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute bottom-4 left-4">
-              <p className="text-white/60 text-xs font-body uppercase tracking-wider">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-white/80 text-xs font-body uppercase tracking-wider">
                 {projects[getSlideIndex(1)].location}
               </p>
             </div>
+          </motion.div>
+
+          {/* Far Right Preview - Smaller */}
+          <motion.div
+            className="hidden lg:block w-32 xl:w-40 h-48 xl:h-56 relative opacity-30 flex-shrink-0 overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 0.3, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={projects[getSlideIndex(2)].image}
+              alt=""
+              className="w-full h-full object-cover scale-105"
+            />
           </motion.div>
         </div>
       </div>
