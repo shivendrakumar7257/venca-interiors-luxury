@@ -11,7 +11,7 @@ const ThemeToggle = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       onClick={toggleTheme}
-      className="fixed top-20 right-6 z-50 w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-champagne/10 transition-all duration-300 group"
+      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 group"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <motion.div

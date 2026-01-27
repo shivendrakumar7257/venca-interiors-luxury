@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import FeedbackButton from "@/components/FeedbackButton";
 import NewsletterPopup from "@/components/NewsletterPopup";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";
@@ -61,6 +62,7 @@ const App = () => (
         <FeedbackButton />
         <NewsletterPopup />
         <BrowserRouter>
+          <ScrollToTop />
           <AnimatedRoutes />
         </BrowserRouter>
       </TooltipProvider>
