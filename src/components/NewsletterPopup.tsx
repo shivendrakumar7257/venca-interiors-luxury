@@ -69,20 +69,21 @@ const NewsletterPopup = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="relative z-10 flex w-full max-w-4xl overflow-hidden shadow-luxury"
+            className="relative z-10 flex flex-col md:flex-row w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-luxury rounded-lg"
           >
-            {/* Left - Image */}
-            <div className="hidden md:block w-1/2 relative">
+            {/* Top/Left - Image (visible on all screens) */}
+            <div className="w-full md:w-1/2 relative h-40 sm:h-48 md:h-auto flex-shrink-0">
               <img
                 src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80"
                 alt="Luxury Interior"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-transparent to-black/20" />
             </div>
 
-            {/* Right - Form */}
-            <div className="w-full md:w-1/2 bg-[#2a2a2a] p-8 md:p-12 flex flex-col justify-center relative">
+            {/* Bottom/Right - Form */}
+            <div className="w-full md:w-1/2 bg-[#2a2a2a] p-6 sm:p-8 md:p-12 flex flex-col justify-center relative overflow-y-auto">
               {/* Close Button */}
               <button
                 onClick={handleClose}

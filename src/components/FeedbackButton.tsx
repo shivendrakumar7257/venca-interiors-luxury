@@ -99,7 +99,7 @@ const FeedbackButton = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90%] max-w-md bg-card border border-border rounded-lg shadow-luxury p-6"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[92%] max-w-md max-h-[90vh] overflow-y-auto bg-card border border-border rounded-lg shadow-luxury p-4 sm:p-6"
             >
               {/* Close button */}
               <button
