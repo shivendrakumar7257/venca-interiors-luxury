@@ -11,14 +11,14 @@ interface HeaderProps {
 
 const navItems = [
   { label: 'OUR STORY', path: '/our-story' },
-  { label: 'OUR COLLECTIONS', path: '/category/sofas' },
+  { label: 'OUR COLLECTIONS', path: '/collections' },
   { label: 'OUR PROJECTS', path: '/category/chairs' },
   { label: 'OUR SERVICES', path: '/faq' },
   { label: 'OUR CONTACT', path: '/about' },
 ];
 
 const mobileNavItems = [
-  { label: 'Collections', path: '/category/sofas' },
+  { label: 'Collections', path: '/collections' },
   { label: 'Our Projects', path: '/category/chairs' },
   { label: 'Our Services', path: '/faq' },
   { label: 'About Us', path: '/our-story' },
