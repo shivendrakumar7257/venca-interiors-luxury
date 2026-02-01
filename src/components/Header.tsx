@@ -12,17 +12,17 @@ interface HeaderProps {
 const navItems = [
   { label: 'OUR STORY', path: '/our-story' },
   { label: 'OUR COLLECTIONS', path: '/collections' },
-  { label: 'OUR PROJECTS', path: '/category/chairs' },
-  { label: 'OUR SERVICES', path: '/faq' },
-  { label: 'OUR CONTACT', path: '/about' },
+  { label: 'OUR PROJECTS', path: '/projects' },
+  { label: 'OUR SERVICES', path: '/services' },
+  { label: 'OUR CONTACT', path: '/contact' },
 ];
 
 const mobileNavItems = [
   { label: 'Collections', path: '/collections' },
-  { label: 'Our Projects', path: '/category/chairs' },
-  { label: 'Our Services', path: '/faq' },
+  { label: 'Our Projects', path: '/projects' },
+  { label: 'Our Services', path: '/services' },
   { label: 'About Us', path: '/our-story' },
-  { label: 'Contact', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 const Header = ({ isVisible }: HeaderProps) => {

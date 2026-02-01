@@ -17,6 +17,9 @@ import AboutPage from "./pages/AboutPage";
 import OurStoryPage from "./pages/OurStoryPage";
 import FAQPage from "./pages/FAQPage";
 import CollectionsPage from "./pages/CollectionsPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +46,9 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/collections" element={<PageTransition><CollectionsPage /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
         <Route path="/category/:categoryId" element={<PageTransition><CategoryPage /></PageTransition>} />
         <Route path="/product/:productId" element={<PageTransition><ProductPage /></PageTransition>} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
