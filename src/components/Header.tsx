@@ -70,9 +70,9 @@ const Header = ({ isVisible }: HeaderProps) => {
             <button className="text-white/70 hover:text-white transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
-            <button className="text-white/70 hover:text-white transition-colors p-2">
+            <Link to="/login" className="text-white/70 hover:text-white transition-colors p-2">
               <User className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -87,9 +87,9 @@ const Header = ({ isVisible }: HeaderProps) => {
 
           {/* Right - Actions */}
           <div className="absolute right-6 flex items-center gap-5">
-            <button className="text-white/70 hover:text-white transition-colors duration-300">
+            <Link to="/login" className="text-white/70 hover:text-white transition-colors duration-300">
               <User className="w-4 h-4" />
-            </button>
+            </Link>
             <button className="text-white/70 hover:text-white transition-colors duration-300">
               <Search className="w-4 h-4" />
             </button>
